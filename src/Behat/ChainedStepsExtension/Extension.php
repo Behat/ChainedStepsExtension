@@ -6,7 +6,7 @@ use Behat\Behat\Extension\Extension as BaseExtension;
 
 class Extension extends BaseExtension
 {
-    public function getExtensionName()
+    public function getName()
     {
         return 'chained_steps_extension';
     }
