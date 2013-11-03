@@ -32,9 +32,7 @@ abstract class SubStep extends StepNode
      */
     public function __construct($type, $text, array $arguments)
     {
-        parent::__construct('Given', $text);
-
-        $this->setArguments($arguments);
+        parent::__construct('Given', $text, $arguments, 0);
     }
 
     /**
