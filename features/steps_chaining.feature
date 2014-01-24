@@ -195,12 +195,11 @@ Feature: Call step in other step
       """
       ........F
 
-      (::) failed steps (::)
+      --- Failed steps:
 
-      01. Failed asserting that 8 matches expected '10'.
-          In step `Then I entered "5" and expect "10"'. # FeatureContext::complexStep()
-          From scenario ***.                            # features/calc_en.feature:13
-          Of feature `Basic calculator'.                # features/calc_en.feature
+          features/calc_en.feature:13
+            Then I entered "5" and expect "10"
+              Failed asserting that 8 matches expected '10'.
 
       3 scenarios (2 passed, 1 failed)
       9 steps (8 passed, 1 failed)
@@ -220,12 +219,11 @@ Feature: Call step in other step
       """
       ..F
 
-      (::) failed steps (::)
+      --- Failed steps:
 
-      01. Failed asserting that 7 matches expected '8'.
-          In step `Then I should see "8" on the screen'. # FeatureContext::iShouldSeeEn()
-          From scenario ***.                             # features/calc_en.feature:2
-          Of feature `Basic calculator'.                 # features/calc_en.feature
+          features/calc_en.feature:2
+            Then I should see "8" on the screen
+              Failed asserting that 7 matches expected '8'.
 
       1 scenario (1 failed)
       3 steps (2 passed, 1 failed)
@@ -252,7 +250,7 @@ Feature: Call step in other step
       1 scenario (1 undefined)
       6 steps (5 passed, 1 undefined)
 
-      You can implement step definitions for undefined steps with these snippets:
+      --- FeatureContext has missing steps. Define them with these snippets:
 
           /**
            * @Given /^Вызовем несуществующий шаг$/
@@ -311,7 +309,7 @@ Feature: Call step in other step
       1 scenario (1 undefined)
       6 steps (5 passed, 1 undefined)
 
-      You can implement step definitions for undefined steps with these snippets:
+      --- FeatureContext has missing steps. Define them with these snippets:
 
           /**
            * @Given /^Вызовем несуществующий шаг$/
@@ -340,26 +338,24 @@ Feature: Call step in other step
       """
       ..FF
 
-      (::) failed steps (::)
+      --- Failed steps:
 
-      01. Failed asserting that 7 matches expected '8'.
-          In step `То Я должен увидеть на экране "8"'. # FeatureContext::iShouldSeeRu()
-          From scenario ***.                           # features/calc_ru.feature:3
-          Of feature `Стандартный калькулятор'.        # features/calc_ru.feature
+          features/calc_ru.feature:3
+            То Я должен увидеть на экране "8"
+              Failed asserting that 7 matches expected '8'.
 
-      02. Failed asserting that two arrays are equal.
-          --- Expected
-          +++ Actual
-          @@ @@
-           Array (
-          -    'username' => 'everzet'
-          -    'password' => 'qwerty'
-          +    'username' => 'antono'
-          +    'password' => '123'
-           )
-          In step `Допустим Я создам себе failing таблицу'. # FeatureContext::assertFailingTableRu()
-          From scenario ***.                                # features/calc_ru.feature:8
-          Of feature `Стандартный калькулятор'.             # features/calc_ru.feature
+          features/calc_ru.feature:8
+            Допустим Я создам себе failing таблицу
+              Failed asserting that two arrays are equal.
+              --- Expected
+              +++ Actual
+              @@ @@
+               Array (
+              -    'username' => 'everzet'
+              -    'password' => 'qwerty'
+              +    'username' => 'antono'
+              +    'password' => '123'
+               )
 
       2 scenarios (2 failed)
       4 steps (2 passed, 2 failed)
