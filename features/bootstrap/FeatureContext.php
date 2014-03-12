@@ -175,8 +175,16 @@ class FeatureContext implements Context
     public function itShouldFail($success)
     {
         if ('fail' === $success) {
+            if (0 === $this->getExitCode()) {
+                echo 'Actual output:' . PHP_EOL . PHP_EOL . $this->getOutput();
+            }
+
             PHPUnit_Framework_Assert::assertNotEquals(0, $this->getExitCode());
         } else {
+            if (0 !== $this->getExitCode()) {
+                echo 'Actual output:' . PHP_EOL . PHP_EOL . $this->getOutput();
+            }
+
             PHPUnit_Framework_Assert::assertEquals(0, $this->getExitCode());
         }
     }
