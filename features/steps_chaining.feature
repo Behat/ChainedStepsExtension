@@ -197,9 +197,8 @@ Feature: Call step in other step
 
       --- Failed steps:
 
-          features/calc_en.feature:13
-            Then I entered "5" and expect "10"
-              Failed asserting that 8 matches expected '10'.
+          Then I entered "5" and expect "10" # features/calc_en.feature:15
+            Failed asserting that 8 matches expected '10'.
 
       3 scenarios (2 passed, 1 failed)
       9 steps (8 passed, 1 failed)
@@ -221,9 +220,8 @@ Feature: Call step in other step
 
       --- Failed steps:
 
-          features/calc_en.feature:2
-            Then I should see "8" on the screen
-              Failed asserting that 7 matches expected '8'.
+          Then I should see "8" on the screen # features/calc_en.feature:5
+            Failed asserting that 7 matches expected '8'.
 
       1 scenario (1 failed)
       3 steps (2 passed, 1 failed)
@@ -293,7 +291,7 @@ Feature: Call step in other step
           И Я создам себе passing таблицу
           И Вызовем несуществующий шаг
       """
-    When I run "behat --no-colors --no-paths features/calc_ru.feature"
+    When I run "behat --no-colors features/calc_ru.feature"
     Then it should pass with:
       """
       Функционал: Стандартный калькулятор
@@ -340,22 +338,20 @@ Feature: Call step in other step
 
       --- Failed steps:
 
-          features/calc_ru.feature:3
-            То Я должен увидеть на экране "8"
-              Failed asserting that 7 matches expected '8'.
+          То Я должен увидеть на экране "8" # features/calc_ru.feature:6
+            Failed asserting that 7 matches expected '8'.
 
-          features/calc_ru.feature:8
-            Допустим Я создам себе failing таблицу
-              Failed asserting that two arrays are equal.
-              --- Expected
-              +++ Actual
-              @@ @@
-               Array (
-              -    'username' => 'everzet'
-              -    'password' => 'qwerty'
-              +    'username' => 'antono'
-              +    'password' => '123'
-               )
+          Допустим Я создам себе failing таблицу # features/calc_ru.feature:9
+            Failed asserting that two arrays are equal.
+            --- Expected
+            +++ Actual
+            @@ @@
+             Array (
+            -    'username' => 'everzet'
+            -    'password' => 'qwerty'
+            +    'username' => 'antono'
+            +    'password' => '123'
+             )
 
       2 scenarios (2 failed)
       4 steps (2 passed, 2 failed)
