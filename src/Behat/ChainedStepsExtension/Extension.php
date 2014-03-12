@@ -10,10 +10,13 @@
 
 namespace Behat\ChainedStepsExtension;
 
+use Behat\Behat\Tester\ServiceContainer\TesterExtension;
 use Behat\Testwork\ServiceContainer\Extension as ExtensionInterface;
 use Behat\Testwork\ServiceContainer\ExtensionManager;
 use Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\DependencyInjection\Definition;
+use Symfony\Component\DependencyInjection\Reference;
 
 class Extension implements ExtensionInterface
 {
@@ -44,7 +47,11 @@ class Extension implements ExtensionInterface
      */
     public function load(ContainerBuilder $container, array $config)
     {
-        // TODO: Implement load() method.
+        $definition = new Definition('Behat\ChainedStepsExtension\Tester\SubStepTester', array(
+            new Reference(TesterExtension::STEP_TESTER_ID),
+        ));
+        $definition->addTag(TesterExtension::STEP_TESTER_WRAPPER_TAG, array('priority' => 100));
+        $container->setDefinition(TesterExtension::STEP_TESTER_WRAPPER_TAG . '.substep', $definition);
     }
 
     /**
