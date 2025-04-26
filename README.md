@@ -1,5 +1,11 @@
 # ChainedStepsExtension
 
+## Abandoned package
+
+This package (which was never formally released) is now abandoned and will not be maintained.
+
+---
+
 [![Build
 Status](https://travis-ci.org/Behat/ChainedStepsExtension.png?branch=master)](http://travis-ci.org/Behat/ChainedStepsExtension) master version, for Behat 3.x
 
